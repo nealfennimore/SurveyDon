@@ -7,3 +7,12 @@
 th {
   text-align: left;
 }
+nav li {
+  list-style-type: none;
+}
+nav a {
+  float: right;
+  display: ;
+  margin-left: 10px;
+  text-decoration: none;
+}
