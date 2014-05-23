@@ -16,3 +16,11 @@ $(document).ready(function() {
   });
 });
 
+// $(document).ready(function() {
+//   $('#take_surveys').click(function(){
+//     $.get('/surveys', function(){
+//       window.location.href = '/surveys';
+//     });
+//   });
+// });
+

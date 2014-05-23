@@ -5,6 +5,16 @@
 <p>Hello, <%= @user.username %>!</p>
 <% end %>
 
+
+<div class="survey_buttons">
+  <form method="get" action="/surveys">
+    <input type="submit" id="take_surveys" value="Take a Survey!">
+  </form><br>
+  <form method="get" action="/surveys/create">
+    <input type="submit" id="create_survey" value="Create a Survey!">
+  </form>
+</div><br>
+
 <table>
   <tr>
     <th>Survey Name</th>
