@@ -18,6 +18,20 @@
   <title></title>
 </head>
 <body>
-<%= yield %>
+  <div class="container">
+   <nav>
+    <ul>
+
+      <% if session[:user_id] %>
+      <li><a href="/logout" id="logout">Logout</a></li>
+      <% else %>
+      <li><a href="/login" id="login">Login</a></li>
+      <li><a href="/signup" id="signup">Signup</a></li>
+      <% end %>
+
+    </ul>
+  </nav>
+  <%= yield %>
+</div>
 </body>
 </html>
