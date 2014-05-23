@@ -1,3 +1,4 @@
 class SurveyedUser < ActiveRecord::Base
-  has_many :responses
+  belongs_to :responses
+  belongs_to :users
 end
