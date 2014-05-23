@@ -43,4 +43,7 @@ get '/surveys' do
   erb :surveys
 end
 
-
+get '/survey/:survey_id' do
+  @survey = Survey.where(id: params[:survey_id])
+  erb :survey
+end
