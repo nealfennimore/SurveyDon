@@ -1,26 +1,14 @@
-<div class="container">
- <nav>
-  <ul>
-    <% if session[:user_id] %>
-    <li><a href="/logout" id="logout">Logout</a></li>
-    <% else %>
 
-    <li><a href="/login" id="login">Login</a></li>
-    <li><a href="/signup" id="signup">Signup</a></li>
-    <% end %>
 
-    <% if @user %>
-    <li><a href="/user/<%= @user.id %>"><%= @user.username %></a></li>
-    <% end %>
-  </ul>
-</nav>
 <h1>Welcome to SurveyDon!</h1>
-<p>Hello, world!</p>
+<% if session[:user_id] %>
+<p>Hello, <%= @user.username %>!</p>
+<% end %>
 
 <table>
   <tr>
-    <th>File Description</th>
-    <th>File Location</th>
+    <th>Survey Name</th>
+    <th>Created By</th>
   </tr>
   <tr>
     <td>This view file</td>
@@ -35,4 +23,3 @@
     <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
   </tr>
 </table>
-</div>
