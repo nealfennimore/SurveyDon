@@ -16,3 +16,12 @@ nav a {
   margin-left: 10px;
   text-decoration: none;
 }
+.survey_buttons{
+  display: flex;
+}
+#take_surveys, #create_survey{
+  margin: 0 10px;
+}
+#don {
+  width: 50%;
+}
