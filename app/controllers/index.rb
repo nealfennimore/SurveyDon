@@ -38,4 +38,9 @@ get '/logout' do
   redirect '/'
 end
 
+get '/surveys' do
+
+  erb :surveys
+end
+
 
