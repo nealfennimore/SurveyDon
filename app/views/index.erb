@@ -1,35 +1,20 @@
 
 
 <h1>Welcome to SurveyDon!</h1>
+
+<img id="don" src="http://i.imgur.com/xawwe2D.png"/>
+
 <% if session[:user_id] %>
 <p>Hello, <%= @user.username %>!</p>
 <% end %>
 
-
+<p>
 <div class="survey_buttons">
   <form method="get" action="/surveys">
     <input type="submit" id="take_surveys" value="Take a Survey!">
-  </form><br>
+  </form>
   <form method="get" action="/surveys/create">
     <input type="submit" id="create_survey" value="Create a Survey!">
   </form>
 </div><br>
 
-<table>
-  <tr>
-    <th>Survey Name</th>
-    <th>Created By</th>
-  </tr>
-  <tr>
-    <td>This view file</td>
-    <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-  </tr>
-  <tr>
-    <td>The layout file</td>
-    <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-  </tr>
-  <tr>
-    <td>The current controller</td>
-    <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-  </tr>
-</table>
