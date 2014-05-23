@@ -1,23 +1,38 @@
 <div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
+ <nav>
+  <ul>
+    <% if session[:user_id] %>
+    <li><a href="/logout" id="logout">Logout</a></li>
+    <% else %>
 
-  <table>
-    <tr>
-      <th>File Description</th>
-      <th>File Location</th>
-    </tr>
-    <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-  </table>
+    <li><a href="/login" id="login">Login</a></li>
+    <li><a href="/login" id="signup">Signup</a></li>
+    <% end %>
+
+    <% if @user %>
+    <li><a href="/user/<%= @user.id %>"><%= @user.username %></a></li>
+    <% end %>
+  </ul>
+</nav>
+<h1>Welcome to SurveyDon!</h1>
+<p>Hello, world!</p>
+
+<table>
+  <tr>
+    <th>File Description</th>
+    <th>File Location</th>
+  </tr>
+  <tr>
+    <td>This view file</td>
+    <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
+  </tr>
+  <tr>
+    <td>The layout file</td>
+    <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
+  </tr>
+  <tr>
+    <td>The current controller</td>
+    <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
+  </tr>
+</table>
 </div>
