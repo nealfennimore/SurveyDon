@@ -47,3 +47,8 @@ get '/survey/:survey_id' do
   @survey = Survey.where(id: params[:survey_id])
   erb :survey
 end
+
+get '/surveys/create' do
+
+  erb :'create_survey/create'
+end
