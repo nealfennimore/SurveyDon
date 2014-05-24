@@ -65,5 +65,19 @@ end
 post '/survey/new_question' do
   survey_id = session[:survey_id]
   question_title = params[:question][:question]
-  Question.create(question: question_title, survey_id: survey_id)
+  question = Question.create(question: question_title, survey_id: survey_id)
+  session[:question_id] = question.id
+  redirect '/surveys/create'
+end
+
+post '/finished' do
+  session.delete(:title)
+  redirect '/'
+end
+
+post '/choices' do
+  puts params[:choices]
+  params[:choices].each do |key, val|
+    Choice.create(choice: val, question_id: session[:question_id])
+  end
 end

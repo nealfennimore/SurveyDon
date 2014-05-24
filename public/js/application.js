@@ -26,12 +26,31 @@ $(document).ready(function() {
   });
 });
 
-// $(document).ready(function() {
-//   $('#add_question').click(function(e){
-//     e.preventDefault();
-//     var newQuestion = $('input.question').serialize();
-//     $.post('/survey/new_question', newQuestion, function(){
-//       window.location.href = '/survey/new_question';
-//     });
-//   });
-// });
+$(document).ready(function() {
+  $('#add_question').click(function(e){
+    e.preventDefault();
+    var newQuestion = $('input.question').serialize();
+    $.post('/survey/new_question', newQuestion, function(){
+      $('#add_type').show();
+    });
+  });
+});
+
+$(document).ready(function() {
+  $('#finished').click(function(e){
+    e.preventDefault();
+    $.post('/finished', function(){
+      location.href = '/';
+    });
+  });
+});
+
+$(document).ready(function() {
+  $('#add_choices').click(function(e){
+    e.preventDefault();
+    var newChoices = $('input.choice').serialize();
+    $.post('/choices', newChoices, function(){
+      location.href = '/surveys/create';
+    });
+  });
+});
