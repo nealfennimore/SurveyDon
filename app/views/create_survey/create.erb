@@ -5,6 +5,17 @@
 
 </form>
 
+
+<form id="question_form">
+  <fieldset>
+    <legend>Add Question</legend>
+
+    <label for="question[question]">Title:</label>
+    <input type="text" name="question[question]">
+    <input type="submit" value="Add question" id="add_question">
+  </fieldset>
+</form>
+
 <form id="add_type" class="hidden">
   <fieldset id="current_question">
     <legend>Add field to current question</legend>
@@ -19,16 +30,5 @@
     <label for="name">Value:</label>
     <input type="text" name="name">
     <input type="submit" value="Add field" id="add_field">
-  </fieldset>
-</form>
-
-
-<form id="question_form">
-  <fieldset>
-    <legend>Add Question</legend>
-
-    <label for="question[question]">Title:</label>
-    <input type="text" name="question[question]">
-    <input type="submit" value="Add question" id="add_question">
   </fieldset>
 </form>
