@@ -16,11 +16,22 @@ $(document).ready(function() {
   });
 });
 
+$(document).ready(function() {
+  $('#add_title').click(function(e){
+    e.preventDefault();
+    var surveyTitle = $('input.title').serialize();
+    $.post('/survey/new', surveyTitle, function(){
+      location.href = '/surveys/create';
+    });
+  });
+});
+
 // $(document).ready(function() {
-//   $('#take_surveys').click(function(){
-//     $.get('/surveys', function(){
-//       window.location.href = '/surveys';
+//   $('#add_question').click(function(e){
+//     e.preventDefault();
+//     var newQuestion = $('input.question').serialize();
+//     $.post('/survey/new_question', newQuestion, function(){
+//       window.location.href = '/survey/new_question';
 //     });
 //   });
 // });
-

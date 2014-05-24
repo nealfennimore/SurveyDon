@@ -40,6 +40,7 @@ end
 
 get '/surveys' do
   @surveys = Survey.all
+  @users = User.all
   erb :surveys
 end
 
@@ -51,4 +52,17 @@ end
 get '/surveys/create' do
 
   erb :'create_survey/create'
+end
+
+post '/survey/new' do
+  title = params[:survey][:title]
+  session[:title] = title
+  survey = Survey.create(title: title, user_id: session[:user_id])
+  session[:survey_id] = survey.id
+end
+
+post '/survey/new_question' do
+  survey_id = session[:survey_id]
+  question_title = params[:question][:question]
+  Question.create(question: question_title, survey_id: survey_id)
 end
