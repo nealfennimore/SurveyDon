@@ -1,22 +1,31 @@
 $(document).ready(function() {
-  $('#create_submit').click(function(){
-    var create_info = $('input.create').serialize();
-    $.post('/signup', create_info, function(){
-      window.location.href = '/';
+
+  $('#signup').click(function(e){
+    e.preventDefault();
+    $.get('/signup', function(response){
+      $('body').empty();
+      $('body').append(response);
     });
   });
-});
 
-$(document).ready(function() {
+
+  $('#create_account').click(function(e){
+    e.preventDefault();
+    var create_info = $('input.create').serialize();
+    $.post('/signup', create_info, function(response){
+      $('body').empty();
+      $('body').append(response);
+    });
+  });
+
   $('#login_submit').click(function(){
     var login_info = $('input.login').serialize();
     $.post('/login', login_info, function(){
-      window.location.href = '/';
+      $('body').empty();
+      $('body').append(response);
     });
   });
-});
 
-$(document).ready(function() {
   $('#add_title').click(function(e){
     e.preventDefault();
     var surveyTitle = $('input.title').serialize();
@@ -24,9 +33,7 @@ $(document).ready(function() {
       location.href = '/surveys/create';
     });
   });
-});
 
-$(document).ready(function() {
   $('#add_question').click(function(e){
     e.preventDefault();
     var newQuestion = $('input.question').serialize();
@@ -34,23 +41,20 @@ $(document).ready(function() {
       $('#add_type').show();
     });
   });
-});
 
-$(document).ready(function() {
+  $('#add_choices').click(function(e){
+    e.preventDefault();
+    var newChoices = $('input.choice').serialize();
+    $.post('/choices', newChoices, function(){
+      $('#add_question').show();
+    });
+  });
+
   $('#finished').click(function(e){
     e.preventDefault();
     $.post('/finished', function(){
       location.href = '/';
     });
   });
-});
 
-$(document).ready(function() {
-  $('#add_choices').click(function(e){
-    e.preventDefault();
-    var newChoices = $('input.choice').serialize();
-    $.post('/choices', newChoices, function(){
-      location.href = '/surveys/create';
-    });
-  });
 });

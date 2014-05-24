@@ -15,7 +15,8 @@ post '/signup' do
   @user.password = params[:create][:password_hash]
   @user.save
   session[:user_id] = @user.id
-  redirect '/'
+  # redirect '/'
+  erb :index
 end
 
 get '/login' do
@@ -30,7 +31,7 @@ post '/login' do
   else
     session[:message] = "Login did not work"
   end
-  redirect '/'
+  erb :login
 end
 
 get '/logout' do
