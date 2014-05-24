@@ -59,6 +59,7 @@ post '/survey/new' do
   session[:title] = title
   survey = Survey.create(title: title, user_id: session[:user_id])
   session[:survey_id] = survey.id
+  redirect '/surveys/create'
 end
 
 post '/survey/new_question' do
