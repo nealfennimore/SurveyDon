@@ -1,7 +1,5 @@
 <h1>Here are the Surveys:</h1>
 
-
-
 <table>
   <tr>
     <th>Survey Name</th>
@@ -9,7 +7,7 @@
   </tr>
 <% @surveys.each do |survey| %>
   <tr>
-    <td><a href="/survey/<%= survey.id %>"><%= survey.title %></a></td>
+    <td><a href="/take_survey/<%= survey.id %>"><%= survey.title %></a></td>
     <td><%= survey.user.username %></td>
   </tr>
 <% end %>

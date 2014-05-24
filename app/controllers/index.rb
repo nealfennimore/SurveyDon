@@ -31,7 +31,7 @@ post '/login' do
   else
     session[:message] = "Login did not work"
   end
-  erb :login
+  redirect '/'
 end
 
 get '/logout' do
@@ -45,9 +45,14 @@ get '/surveys' do
   erb :surveys
 end
 
-get '/survey/:survey_id' do
-  @survey = Survey.where(id: params[:survey_id])
-  erb :survey
+get '/take_survey/:survey_id' do
+  @survey = Survey.find_by_id(params[:survey_id])
+  erb :'take_survey/survey'
+end
+
+post '/take_survey/:survey_id/submit' do
+
+  redirect 'surveys'
 end
 
 get '/surveys/create' do

@@ -21,8 +21,7 @@ $(document).ready(function() {
   $('#login_submit').click(function(){
     var login_info = $('input.login').serialize();
     $.post('/login', login_info, function(){
-      $('body').empty();
-      $('body').append(response);
+      location.href = '/'
     });
   });
 
