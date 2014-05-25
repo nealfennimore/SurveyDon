@@ -51,9 +51,14 @@ get '/take_survey/:survey_id' do
 end
 
 post '/take_survey/:survey_id/submit' do
-  SurveyedUser.create(user_id: session[:user_id], survey_id: params[:survey_id])
-  p params
+  surveyed_user = SurveyedUser.create(user_id: session[:user_id], survey_id: params[:survey_id])
+  params[:choices].each do |question, choice|
+    p question
+    p choice
+    Response.create(surveyed_user_id: surveyed_user.id, choice_id: choice)
+  end
 
+  # Response.create(surveyed_user_id: surveyed_user.id, )
   redirect 'surveys'
 end
 
