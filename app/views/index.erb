@@ -5,7 +5,7 @@
 <img id="don" src="http://i.imgur.com/xawwe2D.png"/>
 
 <% if session[:user_id] %>
-<p>Hello, <%= @user.username %>!</p>
+<p>Hello, <a href="/user_profile"><%= @user.username %></a>!</p>
 <% end %>
 
 <p>

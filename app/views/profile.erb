@@ -1,7 +1,14 @@
-<p><%= @current_user.username %></p>
+<p>User: <%= @current_user.username %></p>
 
 <h3>Your Surveys</h3>
+<ol>
 <%@user_surveys.each do |survey| %>
-<p><%= survey.title %> <a href="survey/<%=survey.id%>/results">View results</a></p>
+<li><a href="take_survey/<%=survey.id%>"><%=survey.title%></li>
+  <ul>
+    <li><a href="/survey/<%=survey.id%>/results">Results</a></li>
+    <li><a href="#">Edit</a></li>
+    <li><a href="/survey/<%=survey.id%>/delete">Delete</a></li>
+  </ul>
 <% end %>
+</ol>
 

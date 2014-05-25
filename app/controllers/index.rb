@@ -89,12 +89,12 @@ post '/choices' do
   redirect '/surveys/create'
 end
 
-get '/user_profile' do 
+get '/user_profile' do
 
-@current_user = User.find(session[:user_id])
-@user_surveys = Survey.where(user_id: session[:user_id])
+  @current_user = User.find(session[:user_id])
+  @user_surveys = Survey.where(user_id: session[:user_id])
 
-erb :profile
+  erb :profile
 
 end
 
@@ -106,3 +106,9 @@ get '/survey/:survey_id/results' do
 
 end
 
+get '/survey/:survey_id/delete' do
+  survey = Survey.find_by_id(params[:survey_id])
+  survey.questions.destroy_all
+  survey.destroy
+  redirect '/user_profile'
+end
