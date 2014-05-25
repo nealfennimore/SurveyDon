@@ -89,12 +89,12 @@ post '/choices' do
   redirect '/surveys/create'
 end
 
-get '/user_profile' do 
+get '/user_profile' do
 
-@current_user = User.find(session[:user_id])
-@user_surveys = Survey.where(user_id: session[:user_id])
+  @current_user = User.find(session[:user_id])
+  @user_surveys = Survey.where(user_id: session[:user_id])
 
-erb :profile
+  erb :profile
 
 end
 
