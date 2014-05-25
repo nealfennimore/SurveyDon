@@ -100,7 +100,6 @@ get '/user_profile' do
 end
 
 get '/survey/:survey_id/results' do
-
   Survey.find(params[:survey_id])
 
   erb :survey_results
