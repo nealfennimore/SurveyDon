@@ -121,10 +121,11 @@ end
 post '/survey/:survey_id/question/:question_id/edit' do
   @survey = Survey.find(params[:survey_id])
   @question = Question.find(params[:question_id])
-  p params
-  p params[:question][:question]
-  p params[:choices]
+  choices = params[:choices]
   Question.update(@question.id, question: params[:question][:question])
+  choices.each do |choice|
+    Choice.update(choice[0], choice: choice[1])
+  end
   redirect "/survey/#{@survey.id}/edit"
 end
 
