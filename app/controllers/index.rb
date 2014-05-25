@@ -52,6 +52,7 @@ end
 
 post '/take_survey/:survey_id/submit' do
   SurveyedUser.create(user_id: session[:user_id], survey_id: params[:survey_id])
+  p params
 
   redirect 'surveys'
 end
@@ -96,7 +97,6 @@ get '/user_profile' do
   @user_surveys = Survey.where(user_id: session[:user_id])
 
   erb :profile
-
 end
 
 get '/survey/:survey_id/results' do
@@ -104,6 +104,28 @@ get '/survey/:survey_id/results' do
 
   erb :survey_results
 
+end
+
+get '/survey/:survey_id/edit' do
+  @survey = Survey.find(params[:survey_id])
+
+  erb :'create_survey/edit_survey'
+end
+
+get '/survey/:survey_id/question/:question_id/edit' do
+  @survey = Survey.find(params[:survey_id])
+  @question = Question.find(params[:question_id])
+  erb :'create_survey/edit_question'
+end
+
+post '/survey/:survey_id/question/:question_id/edit' do
+  @survey = Survey.find(params[:survey_id])
+  @question = Question.find(params[:question_id])
+  p params
+  p params[:question][:question]
+  p params[:choices]
+  Question.update(@question.id, question: params[:question][:question])
+  redirect "/survey/#{@survey.id}/edit"
 end
 
 get '/survey/:survey_id/delete' do
