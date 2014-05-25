@@ -11,10 +11,8 @@
           <% end %>
       </ul>
     <% end %>
-
-    <input type="submit" id="submit_survey" value="Submit the Survey!">
+    <% if session[:user_id] %>
+      <input type="submit" id="submit_survey" value="Submit the Survey!">
+    <% end %>
   </form>
-
-<% else %>
-  <p><a href='/'>Login</a> to take a survey.</p>
 <% end %>
