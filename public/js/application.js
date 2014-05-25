@@ -45,18 +45,16 @@ $(document).ready(function() {
     e.preventDefault();
     var newChoices = $('input.choice').serialize();
     $.post('/choices', newChoices, function(response){
-      $('body').empty();
-      $('body').append(response);
-
-      // $('.question').empty();
-      // $('.choice-options').empty();
-      // $('.question').show();
-      // $('.choice-options').show();
-      // $('#add_question').show();
+      $('#finished').show();
     });
   });
 
-  $('#finished').click(function(e){
+  $('#add_another_question').click(function(e){
+    e.preventDefault();
+    location.href = '/surveys/create';
+  });
+
+  $('#finished_survey').click(function(e){
     e.preventDefault();
     $.post('/finished', function(){
       location.href = '/';
