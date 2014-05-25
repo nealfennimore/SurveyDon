@@ -1,5 +1,3 @@
-
-
 <h1><%=@survey.title%> Results</h1>
 <h3><%= @surveyed_users.count %> users have taken your survey:</h3>
 <ul>
@@ -8,12 +6,9 @@
   <% end %>
 </ul>
 <h3>Here is what people have to say: </h3>
-<% chart_hash = {} %>
 <% @survey.questions.each do |question| %>
 <ul>
   <li><%= question.question %></li>
   <%= pie_chart({"#{question.choices[0].choice}" => Response.where(choice_id: question.choices[0].id).count, "#{question.choices[1].choice}" => Response.where(choice_id: question.choices[1].id).count, "#{question.choices[2].choice}" => Response.where(choice_id: question.choices[2].id).count}) %>
 </ul>
 <% end %>
-<!--Div that will hold the pie chart-->
-<div id="chart_div"></div>
