@@ -1,10 +1,10 @@
 <h1>Edit Question</h1>
 <form action="/survey/<%=@survey.id%>/question/<%=@question.id%>/edit" method="post">
   <div class="edit_question">
-    Q: <input type="text" name="<%=@question.id%>"value="<%= @question.question%>"></input>
+    Q: <input type="text" class="question" name="question[question]"value="<%= @question.question%>"></input>
     <ul>
       <% @question.choices.each do |choice| %>
-      <li><input type="text" name="<%=choice.id%>" value="<%=choice.choice%>"></input></li><br>
+      <li><input class="choice" type="text" name="choices[<%=choice.id%>]" value="<%=choice.choice%>"></input></li><br>
       <% end %>
     </ul>
     <input type="submit" id="submit_edit" value="Save your changes!">

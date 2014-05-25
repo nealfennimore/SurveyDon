@@ -121,7 +121,11 @@ end
 post '/survey/:survey_id/question/:question_id/edit' do
   @survey = Survey.find(params[:survey_id])
   @question = Question.find(params[:question_id])
-  erb :'create_survey/edit_question'
+  p params
+  p params[:question][:question]
+  p params[:choices]
+  Question.update(@question.id, question: params[:question][:question])
+  redirect "/survey/#{@survey.id}/edit"
 end
 
 get '/survey/:survey_id/delete' do
