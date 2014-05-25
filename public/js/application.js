@@ -44,8 +44,15 @@ $(document).ready(function() {
   $('#add_choices').click(function(e){
     e.preventDefault();
     var newChoices = $('input.choice').serialize();
-    $.post('/choices', newChoices, function(){
-      $('#add_question').show();
+    $.post('/choices', newChoices, function(response){
+      $('body').empty();
+      $('body').append(response);
+
+      // $('.question').empty();
+      // $('.choice-options').empty();
+      // $('.question').show();
+      // $('.choice-options').show();
+      // $('#add_question').show();
     });
   });
 
