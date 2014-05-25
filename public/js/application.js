@@ -48,15 +48,10 @@ $(document).ready(function() {
       $('body').empty();
       $('body').append(response);
 
-      // $('.question').empty();
-      // $('.choice-options').empty();
-      // $('.question').show();
-      // $('.choice-options').show();
-      // $('#add_question').show();
     });
   });
 
-  $('#finished').click(function(e){
+  $('#finished_survey').click(function(e){
     e.preventDefault();
     $.post('/finished', function(){
       location.href = '/';
