@@ -86,4 +86,23 @@ post '/choices' do
   params[:choices].each do |key, val|
     Choice.create(choice: val, question_id: session[:question_id])
   end
+  redirect '/surveys/create'
 end
+
+get '/user_profile' do 
+
+@current_user = User.find(session[:user_id])
+@user_surveys = Survey.where(user_id: session[:user_id])
+
+erb :profile
+
+end
+
+get '/survey/:survey_id/results' do
+
+  Survey.find(params[:survey_id])
+
+  erb :survey_results
+
+end
+
