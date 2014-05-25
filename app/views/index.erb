@@ -6,7 +6,6 @@
 
 <% if session[:user_id] %>
 <p>Hello, <a href="/user_profile"><%= @user.username %></a>!</p>
-<% end %>
 
 <p>
 <div class="survey_buttons">
@@ -17,4 +16,7 @@
     <input type="submit" id="create_survey" value="Create a Survey!">
   </form>
 </div><br>
-
+<% else %>
+<h3>Please Signup or Login to take or create a
+ survey.<h3>
+<% end %>
