@@ -107,8 +107,21 @@ get '/survey/:survey_id/results' do
 end
 
 get '/survey/:survey_id/edit' do
+  @survey = Survey.find(params[:survey_id])
 
   erb :'create_survey/edit_survey'
+end
+
+get '/survey/:survey_id/question/:question_id/edit' do
+  @survey = Survey.find(params[:survey_id])
+  @question = Question.find(params[:question_id])
+  erb :'create_survey/edit_question'
+end
+
+post '/survey/:survey_id/question/:question_id/edit' do
+  @survey = Survey.find(params[:survey_id])
+  @question = Question.find(params[:question_id])
+  erb :'create_survey/edit_question'
 end
 
 get '/survey/:survey_id/delete' do
