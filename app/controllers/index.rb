@@ -15,7 +15,6 @@ post '/signup' do
   @user.password = params[:create][:password_hash]
   @user.save
   session[:user_id] = @user.id
-  # redirect '/'
   erb :index
 end
 
@@ -89,7 +88,6 @@ post '/finished' do
 end
 
 post '/choices' do
-  puts params[:choices]
   params[:choices].each do |key, val|
     Choice.create(choice: val, question_id: session[:question_id])
   end
