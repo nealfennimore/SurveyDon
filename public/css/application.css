@@ -25,3 +25,12 @@ nav a {
 #don {
   width: 50%;
 }
+th{
+  text-decoration: underline;
+}
+td{
+text-align:center;
+}
+td a{
+  text-decoration: none;
+}

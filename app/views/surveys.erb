@@ -3,12 +3,16 @@
 <table>
   <tr>
     <th>Survey Name</th>
+    <th>Users Surveyed</th>
     <th>Created By</th>
   </tr>
 <% @surveys.each do |survey| %>
   <tr>
     <td><a href="/take_survey/<%= survey.id %>"><%= survey.title %></a></td>
+    <td><%= SurveyedUser.where(survey_id: survey.id).count%></td>
     <td><%= survey.user.username %></td>
   </tr>
 <% end %>
 </table>
+
+
