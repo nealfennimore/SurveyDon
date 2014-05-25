@@ -106,3 +106,9 @@ get '/survey/:survey_id/results' do
 
 end
 
+get '/survey/:survey_id/delete' do
+  survey = Survey.find_by_id(params[:survey_id])
+  survey.questions.destroy_all
+  survey.destroy
+  redirect '/user_profile'
+end
