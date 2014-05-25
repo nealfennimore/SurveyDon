@@ -106,7 +106,8 @@ get '/user_profile' do
 end
 
 get '/survey/:survey_id/results' do
-  Survey.find(params[:survey_id])
+  @survey = Survey.find(params[:survey_id])
+  @surveyed_users = SurveyedUser.where(survey_id: @survey.id)
 
   erb :survey_results
 
