@@ -131,7 +131,13 @@ end
 
 get '/survey/:survey_id/delete' do
   survey = Survey.find_by_id(params[:survey_id])
+  #destroy all choices related to question
+  survey.questions.each do |question|
+    question.choices.destroy_all
+  end
+  #destroy all questions related to survey
   survey.questions.destroy_all
+  #destroys the survey
   survey.destroy
   redirect '/user_profile'
 end
