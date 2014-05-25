@@ -45,10 +45,13 @@ $(document).ready(function() {
     e.preventDefault();
     var newChoices = $('input.choice').serialize();
     $.post('/choices', newChoices, function(response){
-      $('body').empty();
-      $('body').append(response);
-
+      $('#finished').show();
     });
+  });
+
+  $('#add_another_question').click(function(e){
+    e.preventDefault();
+    location.href = '/surveys/create';
   });
 
   $('#finished_survey').click(function(e){
