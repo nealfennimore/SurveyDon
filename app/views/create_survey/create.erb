@@ -1,0 +1,6 @@
+<h1>Create a new survey</h1>
+<% if session[:title] %>
+<%= erb :'create_survey/question' %>
+<% else %>
+<%= erb :'create_survey/title' %>
+<% end %>

@@ -1,0 +1,20 @@
+<h1>Here are the Surveys:</h1>
+
+<table>
+  <tr>
+    <th>Survey Name</th>
+    <th>Users Surveyed</th>
+    <th>Created By</th>
+    <th>Results</th>
+  </tr>
+<% @surveys.each do |survey| %>
+  <tr>
+    <td><a href="/take_survey/<%= survey.id %>"><%= survey.title %></a></td>
+    <td><%= SurveyedUser.where(survey_id: survey.id).count%></td>
+    <td><%= survey.user.username %></td>
+    <td><a href="/survey/<%= survey.id %>/results">View</a></td>
+  </tr>
+<% end %>
+</table>
+
+

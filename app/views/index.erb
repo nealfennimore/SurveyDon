@@ -1,23 +1,21 @@
-<div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
 
-  <table>
-    <tr>
-      <th>File Description</th>
-      <th>File Location</th>
-    </tr>
-    <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-  </table>
-</div>
+
+<h1>Welcome to SurveyDon!</h1>
+
+<!-- <img id="don" src="http://i.imgur.com/xawwe2D.png"/> -->
+
+<% if session[:user_id] %>
+<p>Hello, <a href="/user_profile"><%= @user.username %></a>!</p>
+
+<p>
+<div class="survey_buttons">
+  <form method="get" action="/surveys">
+    <input type="submit" id="take_surveys" value="Take a Survey!">
+  </form>
+  <form method="get" action="/surveys/create">
+    <input type="submit" id="create_survey" value="Create a Survey!">
+  </form>
+</div><br>
+<% else %>
+<h3>Please <a href="/signup" id="signup">Signup</a> or <a href="/login" id="login">Login</a> to take or create a survey.<h3>
+<% end %>

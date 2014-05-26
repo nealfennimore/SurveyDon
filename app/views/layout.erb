@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 
+
+  <!--
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
@@ -11,13 +12,34 @@
     application.css is where you put your styles
   -->
   <link rel="stylesheet" href="/css/application.css">
+  <link rel="stylesheet" href="/css/thedon.css">
+  <link href='http://fonts.googleapis.com/css?family=Voltaire' rel='stylesheet' type='text/css'>
+
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
+  <script src="//www.google.com/jsapi"></script>
+  <script src="/js/chartkick.js"></script>
+
   <title></title>
 </head>
 <body>
+  <div class="container">
+   <nav>
+
+    <ul>
+      <li><a href="/">Home</a>
+      <% if session[:user_id] %>
+      <li><a href="/logout" id="logout">Logout</a></li>
+      <% else %>
+      <li><a href="/login" id="login">Login</a></li>
+      <li><a href="/signup" id="signup">Signup</a></li>
+      <% end %>
+
+    </ul>
+  </nav>
   <%= yield %>
+</div>
 </body>
 </html>

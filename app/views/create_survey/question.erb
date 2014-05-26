@@ -1,0 +1,41 @@
+<div class="question">
+<form id="question_form">
+  <fieldset>
+    <legend>Add Question</legend>
+    <label for="question[question]">Question:</label>
+    <input type="text" name="question[question]" class="question">
+    <input type="submit" value="Add question" id="add_question">
+  </fieldset>
+</form>
+</div>
+
+<div class="choice-options">
+<form id="add_type" class="hidden">
+  <fieldset id="current_question">
+    <legend>Add field to current question</legend>
+
+    <label for="field_type">Type:</label>
+    <select name="field_type">
+      <option value="radio">Radio</option>
+      <option value="checkbox">Checkbox</option>
+      <option value="text">Text</option>
+    </select>
+
+    <label for="name"></label><br>
+    Choice 1: <input type="text" name="choices[choice1]" class="choice"><br>
+    Choice 2: <input type="text" name="choices[choice2]" class="choice"><br>
+    Choice 3: <input type="text" name="choices[choice3]" class="choice"><br>
+    <input type="submit" value="Add choices" id="add_choices">
+  </fieldset>
+</form>
+</div>
+
+<div class="finished">
+<form id="finished" class="hidden">
+  <fieldset>
+    <legend>Finished?</legend>
+    <input type="submit" value="Add another question" id="add_another_question">
+    <input type="submit" value="Submit Survey" id="finished_survey">
+  </fieldset>
+</form>
+</div>
